@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker falling</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		
+		overflow: hidden;
+		height: 100%;
+	}
+
+	#divs {
+		height: 100%;
+		width: 100%;
+	}
+	/* .char-drop */
+	.drops{
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		font-size: 2rem;
+		/* top: -10; */
+		text-shadow: 3px 2px 2px #000000;
+		margin: 0;
+		padding: 0;
+		animation-name: drop;
+		/* translate: rotateX(360deg) 5s ease; */
+		/* animation-duration: 10s; */
+
+	}
+
+	@keyframes drop {
+		from{ transform: translateY(-5%)}
+		to{transform: translateY(120%)}
+	}
+	</style>
+</head>
+<body onload="call()">
+    <div id="divs"></div>
+	<script>
+		function randomColor(){
+  let colorGen =  "0123456789ABCDEF";
+  let len = colorGen.length;
+  let color = "#";
+  for(let i = 0; i < 6; i++) {
+    color += colorGen[Math.floor(Math.random()*len)];
+  }
+
+  return color;
+}
+
+function randomChar(){
+  let letters = "123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM";
+  let len = letters.length;
+  let char =  letters[Math.floor(Math.random()*len)]; 
+  return char;
+}
+
+function show(){
+    // let id  = "d"+num; 
+    // let element = document.getElementById(id);
+    let el = document.getElementById("divs");
+    let element = document.createElement("div");
+    element.className = "drops";
+    element.innerHTML = randomChar();
+    element.style.color = randomColor();
+    element.style.fontsize =  Math.floor(Math.random()*50) + 10 +"px";
+    element.style.top = -50+"px";
+    element.style.left = Math.floor(Math.random()*1400)+"px";
+    element.style.animationDuration = Math.floor(Math.random()* 10) + 5+"s";
+    element.style.animationIterationCount = "infinite";
+    element.style.animationDelay = Math.floor(Math.random()* 15) +"s";
+    element.style.zIndex = Math.floor(Math.random()*20);
+    el.appendChild(element);
+}
+
+
+function call(){
+  for(let i = 0; i < 200; i++){
+    show();
+  }
+}
+	</script>
+</body>
+</html>
