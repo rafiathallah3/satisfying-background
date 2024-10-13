@@ -1,8 +1,10 @@
 {
   "name": "satisfying-background",
   "displayName": "Satisfying Background",
+  "publisher": "rafiathallah3",
   "description": "Collection of sastifying background",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "repository": "https://github.com/rafiathallah3/satisfying-background",
   "engines": {
     "vscode": "^1.92.0"
   },

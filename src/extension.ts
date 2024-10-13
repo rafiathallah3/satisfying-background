@@ -63,9 +63,7 @@ class SatisfyingBackgroundPanel {
 		this._panel.webview.onDidReceiveMessage(
 			message => {
 				try {
-					console.log(`${message.command}.html`);
-					const filePath: vscode.Uri = vscode.Uri.file(path.join(this._extension.extensionPath, 'src', 'html', `${message.command}.html`));
-					console.log(`GANTI!`);
+					const filePath: vscode.Uri = vscode.Uri.file(path.join(this._extension.extensionPath, 'html', `${message.command}.html`));
 					this._panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
 				} catch {
 					return;
@@ -95,7 +93,7 @@ class SatisfyingBackgroundPanel {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Coding</title>
+    <title>Satisfying Background</title>
 </head>
 <body>
     <h3>Select background</h3>
@@ -107,6 +105,9 @@ class SatisfyingBackgroundPanel {
 	<button onclick="GantiBackground('orbit')">Orbit</button>
 	<button onclick="GantiBackground('piramidEnergi')">Energy Pyramid</button>
 	<button onclick="GantiBackground('textJatuh')">Falling Text</button>
+	<button onclick="GantiBackground('mazeGeneration')">Maze Generation</button>
+	<button onclick="GantiBackground('mazeSpanningTree')">Maze Spanning Tree</button>
+	<button onclick="GantiBackground('mazeFlood')">Maze Flood</button>
 
 	<h3>Credit</h3>
 	<div>Binary Animation: https://codepen.io/fmattuschka/pen/bjZKNQ</div>
@@ -116,11 +117,15 @@ class SatisfyingBackgroundPanel {
 	<div>Maze: https://codepen.io/infinitestack/details/MWMbJMb</div>
 	<div>Orbit: https://codepen.io/megh-bari/pen/gOJeZXv</div>
 	<div>Energy Pyramid: https://codepen.io/juan-antonio-ledesma/pen/bGOadXb</div>
+	<div>Maze Generation: https://gist.githubusercontent.com/mbostock/70a28267db0354261476/raw/a95cc3f21d7705dbea95d205b3b92c29272c2df8/index.html</div>
+	<div>Maze Spanning Tree: https://gist.githubusercontent.com/mbostock/11159599/raw/c5561515e3ed5b208fe731750b513bf66257234d/index.html</div>
+	<div>Maze Flood: https://gist.githubusercontent.com/mbostock/11167589/raw/59f11a98cd3b111c12858107f4621fbb9f39807f/index.html</div>
 
 	<script>
 	const vscode = acquireVsCodeApi();
 
 	function GantiBackground(text) {
+		console.log(text);
 		if(text === undefined) {
 			return;
 		}
@@ -136,7 +141,5 @@ class SatisfyingBackgroundPanel {
 </body>
 </html>
 		`;
-		// const filePath: vscode.Uri = vscode.Uri.file(path.join(this._extension.extensionPath, 'src', 'html', 'kotakPutar.html'));
-		// this._panel.webview.html = fs.readFileSync(filePath.fsPath, 'utf8');
 	}
 }
