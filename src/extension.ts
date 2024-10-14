@@ -108,6 +108,8 @@ class SatisfyingBackgroundPanel {
 	<button onclick="GantiBackground('mazeGeneration')">Maze Generation</button>
 	<button onclick="GantiBackground('mazeSpanningTree')">Maze Spanning Tree</button>
 	<button onclick="GantiBackground('mazeFlood')">Maze Flood</button>
+	<button onclick="GantiBackground('visualNoise')">Visual Noise</button>
+	<button onclick="GantiBackground('depthFirstTraversal')">Depth First Traversal</button>
 
 	<h3>Credit</h3>
 	<div>Binary Animation: https://codepen.io/fmattuschka/pen/bjZKNQ</div>
@@ -120,6 +122,8 @@ class SatisfyingBackgroundPanel {
 	<div>Maze Generation: https://gist.githubusercontent.com/mbostock/70a28267db0354261476/raw/a95cc3f21d7705dbea95d205b3b92c29272c2df8/index.html</div>
 	<div>Maze Spanning Tree: https://gist.githubusercontent.com/mbostock/11159599/raw/c5561515e3ed5b208fe731750b513bf66257234d/index.html</div>
 	<div>Maze Flood: https://gist.githubusercontent.com/mbostock/11167589/raw/59f11a98cd3b111c12858107f4621fbb9f39807f/index.html</div>
+	<div>Visual Noise: https://gist.githubusercontent.com/mbostock/11167589/raw/59f11a98cd3b111c12858107f4621fbb9f39807f/index.html</div>
+	<div>Depth First Traversal: https://gist.github.com/mbostock/949c772b81296f8e4188</div>
 
 	<script>
 	const vscode = acquireVsCodeApi();

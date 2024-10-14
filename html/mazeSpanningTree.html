@@ -32,17 +32,13 @@ var cellSize = 4,
     cellHeight = Math.floor((height - cellSpacing) / (cellSize + cellSpacing)),
     frontier = minHeap(function(a, b) { return a.weight - b.weight; });
 
-var canvas = d3.select("body").append("canvas")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("style", "margin-left: -5px");
-
 let lastIndex = 0;
 function Mulai() {
     if(frontier.array[0] !== undefined) {
         if(frontier.array[0].index === lastIndex) {
             frontier = minHeap(function(a, b) { return a.weight - b.weight; });
             lastIndex = 0;
+			
             return;
         }
 
@@ -50,8 +46,18 @@ function Mulai() {
         return;
     }
 
+	for(const v of document.getElementsByTagName("canvas")) {
+		v.remove();
+	}
+	
+	var canvas = d3.select("body").append("canvas")
+	.attr("width", width)
+	.attr("height", height)
+	.attr("style", "margin-left: -5px");
+
+	var context = canvas.node().getContext("2d");
+
     var cells = new Array(cellWidth * cellHeight)
-    var context = canvas.node().getContext("2d");
 
     context.clearRect(0, 0, width, height);
     

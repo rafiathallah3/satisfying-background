@@ -31,11 +31,6 @@ var cellSize = 4,
     cellWidth = Math.floor((width - cellSpacing) / (cellSize + cellSpacing)),
     cellHeight = Math.floor((height - cellSpacing) / (cellSize + cellSpacing))
 
-var canvas = d3.select("body").append("canvas")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("style", "margin-left: -5px");
-
 var frontier = [];
 
 function Mulai() {
@@ -44,6 +39,15 @@ function Mulai() {
     }
 
     var cells = new Array(cellWidth * cellHeight)
+
+    for(const v of document.getElementsByTagName("canvas")) {
+      v.remove();
+    }
+
+    var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("style", "margin-left: -5px");
 
     var context = canvas.node().getContext("2d");
 
